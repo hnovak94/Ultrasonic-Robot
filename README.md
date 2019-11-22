@@ -21,8 +21,10 @@ BoxAssembly
 
 ## Fritzing Files
 
-Fritzing Diagram with piezo buzzer, 2 LED matrices, 3 RGB LEDs, Ultrasonic Sensor
+Fritzing Diagram with piezo buzzer, 2 LED matrices*, 3 RGB LEDs, Ultrasonic Sensor
 ![wiring diagram](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/fritzingdiagram.ultras.robot.JPG)
+
+*Matrices shown in picture are not exactly what are being used; they are placeholders to show the wiring needed. 
 
 ### Wiring
 
