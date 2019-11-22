@@ -4,11 +4,17 @@ Solidworks, Arduino, Fritzing, and images for our Ultrasonic Robot Project
 
 ## Solidworks
 Backwall
+
 Frontwall
+
 Topwall
+
 Bottomwall
+
 Rightwall
+
 Leftwall
+
 BoxAssembly
 
 ## Arduino Files
@@ -20,7 +26,12 @@ Fritzing Diagram with piezo buzzer, 2 LED matrices, 3 RGB LEDs, Ultrasonic Senso
 ### Wiring
 
 5V: red
+
 GND: black
+
 Ultrasonic sensor: blue digital pins
+
 RGB LEDs: orange digital pins
+
 LED matrices: green digital pins
+
