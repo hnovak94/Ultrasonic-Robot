@@ -9,7 +9,7 @@ Solidworks, Arduino, Fritzing, and images for our Ultrasonic Robot Project
 ## Proposal
 
 ### Goal
-	Our goal is to create an ultrasonic robot that is emotionally expressive depending on the distance from an object to itself. 
+Our goal is to create an ultrasonic robot that is emotionally expressive depending on the distance from an object to itself. 
 
 ### Possible Solutions
 
