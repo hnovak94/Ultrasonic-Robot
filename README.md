@@ -22,7 +22,7 @@ Our goal is to create an ultrasonic robot that is emotionally expressive dependi
 
 ### Solution
 
-Our ultrasonic will display emotion using different colored LEDs and LED matrices. The ultrasonic sensor will set off different LEDs depending on the distance from an, which will depict one of two different emotions (sadness and happiness). The LED matrices (eyes) will show one of two pictures, which will again depict one of two emotions. If an object or a person in the path of the ultrasonic sensor comes closer than a set distance, the LEDs and the LED matrices will change to show happiness. If an object or person gets farther away, the LEDs and LED matrices will change to show sadness. We will use both translucent and opaque acrylic to manipulate the LEDs. There will be a translucent heart shape on the robot’s chest that the lights will shine through. We will also have an RGB LED on either side of the mouth of the robot. For those three locations (two cheeks and heart), we’ll use alternating red and blue light to show happiness and sadness. The last part of the plan is that, depending on distance, a Piezo buzzer will play one of two songs. We chose the songs based on recognizability and emotivity. We picked this solution because we believe it is within our engineering capabilities, and because we think that the combined use of colored LEDs and LED matrices will help our ultrasonic robot accurately depict different emotions.
+Our ultrasonic will display emotion using different colored LEDs and LED matrices. The ultrasonic sensor will set off different LEDs depending on the distance from an, which will depict one of two different emotions (sadness and happiness). The LED matrices (eyes) will show one of two pictures, which will again depict one of two emotions. If an object or a person in the path of the ultrasonic sensor comes closer than a set distance, the LEDs and the LED matrices will change to show happiness. If an object or person gets farther away, the LEDs and LED matrices will change to show sadness. We will also have an RGB LED on either side of the mouth of the robot. For those two locations (two cheeks and heart), we’ll use alternating red and blue light to show happiness and sadness. The last part of the plan is that, depending on distance, a Piezo buzzer will play one of two songs. We chose the songs based on recognizability and emotivity. We picked this solution because we believe it is within our engineering capabilities, and because we think that the combined use of colored LEDs and LED matrices will help our ultrasonic robot accurately depict different emotions.
 
 ### Solidworks
 
@@ -54,8 +54,6 @@ Happy: Exp. 2
 * Motion controlled by the ultrasonic sensor (see below)
 * Songs played by buzzer; change with expression
 * 6 LEDs-Two different colors; change with expressions (1)
-* The top half of the box is translucent- LEDs show through; wires not visible 
-* The bottom half of the box is opaque-Wires and Arduino not visible 
 
 ### Materials
 
