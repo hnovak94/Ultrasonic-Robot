@@ -134,6 +134,12 @@ Leftwall
 
 BoxAssembly
 
+LED Matrix
+
+LED Matrix Mount
+
+Ultrasonic Sensor Mount
+
 ## Arduino Files
 
 ## Fritzing Files
