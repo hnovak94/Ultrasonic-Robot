@@ -1,4 +1,7 @@
-#include <NewPing.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SPITFT.h>
+#include <Adafruit_SPITFT_Macros.h>
+#include <gfxfont.h>
 #define NOTE_B0 31
 #define NOTE_C1 33
 #define NOTE_CS1 35
@@ -88,77 +91,537 @@
 #define NOTE_A4 440
 #define NOTE_AS4 466
 #define NOTE_B4 494
+// matrix setup:
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include "Adafruit_LEDBackpack.h"
+Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
+// ultrasonic sensor setup:
 const int trigPin = 6;
-const int echoPin = 4;
-int buzzer = 9;
+const int echoPin = 2;
 int timeSinceObject;
 int duration, cm;
-NewPing sonar(trigPin, echoPin, 200);
-
-
+// buzzer setup:
+int buzzer = 9;
+int sadCounter = 0;
+int happyCounter = 0;
+// RGB leds setup:
+const int RredPin = 10;
+const int RbluePin = 11;
+const int LredPin = 12;
+const int LbluePin = 8;
+boolean emotion = false;
 void setup()
 {
-	pinMode(buzzer, OUTPUT);
 	Serial.begin(9600);
+	pinMode(buzzer, OUTPUT);
+	pinMode(trigPin, OUTPUT);
+	pinMode(echoPin, INPUT);
+	pinMode(RredPin, OUTPUT);
+	pinMode(LredPin, OUTPUT);
+	pinMode(RbluePin, OUTPUT);
+	pinMode(LbluePin, OUTPUT);
+	matrix.begin(0x70);
+	// false = sad
+	// true = happy
+	// 
+	// 
+	// 
+	// 
+	// 
+	static const uint8_t PROGMEM
+	eyeopen[] =
+	{
+		B00111100,
+		B01111110,
+		B11100111,
+		B11100111,
+		B11111111,
+		B11111111,
+		B01111110,
+		B00111100
+	},
+	blink_step1[] =
+	{
+		B00000000,
+		B01111110,
+		B11100111,
+		B11100111,
+		B11111111,
+		B11111111,
+		B01111110,
+		B00111100
+	},
+	blink_step2[] =
+	{
+		B00000000,
+		B00111100,
+		B11100111,
+		B11100111,
+		B11111111,
+		B00111100,
+		B00000000,
+		B00000000
+	},
+	blink_step3[] =
+	{
+		B00000000,
+		B00000000,
+		B00000000,
+		B11100111,
+		B01111110,
+		B00011000,
+		B00000000,
+		B00000000
+	},
+	blink_step4[] =
+	{
+		B00000000,
+		B00000000,
+		B00000000,
+		B10000001,
+		B01111110,
+		B00000000,
+		B00000000,
+		B00000000
+	};
+	static const uint8_t PROGMEM
+	lookright[] =
+	{
+		B00111100,
+		B01111110,
+		B11110011,
+		B11110011,
+		B11111111,
+		B11111111,
+		B01111110,
+		B00111100
+	},
+	lookleft[] =
+	{
+		B00111100,
+		B01111110,
+		B11001111,
+		B11001111,
+		B11111111,
+		B11111111,
+		B01111110,
+		B00111100
+	};
+	static const uint8_t PROGMEM
+	happiness[] =
+	{
+		B00011000,
+		B00100100,
+		B01000010,
+		B01011010,
+		B01100110,
+		B01000010,
+		B00000000,
+		B00000000
+	};
+	static const uint8_t PROGMEM
+	sadness[] =
+	{
+		B00000000,
+		B00000000,
+		B10000001,
+		B10000001,
+		B01000010,
+		B00111100,
+		B00000000,
+		B00000000
+	};
+	// 
+	// 
+	// 
+	// 
+	// 
 }
 
 void loop()
 {
-	cm = sonar.ping_cm();
-	if (cm != 0)
+	cm = getDistance();
+	cm = microsecondsToCentimeters(timeSinceObject);
+	if (cm <= 10)
 	{
-		if (cm <= 40)
+		emotion = true;
+	}
+	if (cm >= 11)
+	{
+		emotion = false;
+	}
+	if (cm > 0 && cm < 100)
+	{
+		if (emotion == true)
 		{
-			noTone(buzzer);
+			happysong();
+			redison();
+			matrix.clear();
+			matrix.drawBitmap(0, 0, eyeopen, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(3000);
+			blink();
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step1, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step2, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step3, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step4, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step3, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step2, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step1, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
 		}
-		if (cm >= 40)
+		if (emotion == false)
 		{
 			sadsong();
+			blueison();
+			matrix.clear();
+			matrix.drawBitmap(0, 0, sadness, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(300);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step1, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step2, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step3, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step4, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step3, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step2, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
+			matrix.clear();
+			matrix.drawBitmap(0, 0, blink_step1, 8, 8, LED_ON);
+			matrix.writeDisplay();
+			delay(100);
 		}
-		delay(100);
 	}
 	Serial.println(cm);
+	delay(100);
 }
 
+long microsecondsToCentimeters(long microseconds)
+{
+	return microseconds / 29 / 2;
+}
+
+int getDistance()
+{
+	pinMode(trigPin, OUTPUT);
+	digitalWrite(trigPin, LOW);
+	delayMicroseconds(2);
+	digitalWrite(trigPin, HIGH);
+	delayMicroseconds(10);
+	digitalWrite(trigPin, LOW);
+	pinMode(echoPin, INPUT);
+	timeSinceObject = pulseIn(echoPin, HIGH);
+	return cm;
+}
 
 int sadsong()
 {
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	tone(buzzer, NOTE_B5);
-	delay(750);
-	tone(buzzer, NOTE_CS6);
-	delay(750);
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	tone(buzzer, NOTE_FS5);
-	delay(300);
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	// -------
-	tone(buzzer, NOTE_CS5);
-	delay(250);
-	noTone(buzzer);
-	delay(100);
-	tone(buzzer, NOTE_CS5);
-	delay(250);
-	tone(buzzer, NOTE_D5);
-	delay(400);
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	noTone(buzzer);
-	delay(500);
-	// -------
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	tone(buzzer, NOTE_B5);
-	delay(650);
-	tone(buzzer, NOTE_CS6);
-	delay(500);
-	tone(buzzer, NOTE_D6);
-	delay(250);
-	tone(buzzer, NOTE_CS6);
-	delay(500);
-	tone(buzzer, NOTE_D5);
-	delay(1000);
+	happyCounter = 0;
+	sadCounter++;
+	if (sadCounter == 4)
+		sadCounter = 0;
+	if (sadCounter == 0)
+	{
+		blueison();
+		tone(buzzer, NOTE_E5);
+		delay(750);
+		tone(buzzer, NOTE_B5);
+		delay(750);
+		tone(buzzer, NOTE_CS6);
+		delay(750);
+		tone(buzzer, NOTE_E5);
+		delay(750);
+		tone(buzzer, NOTE_FS5);
+		delay(300);
+		tone(buzzer, NOTE_E5);
+		delay(750);
+	}
+	if (sadCounter == 1)
+	{
+		blueison();
+		tone(buzzer, NOTE_CS5);
+		delay(250);
+		noTone(buzzer);
+		delay(100);
+		tone(buzzer, NOTE_CS5);
+		delay(250);
+		tone(buzzer, NOTE_D5);
+		delay(400);
+		tone(buzzer, NOTE_E5);
+		delay(750);
+		noTone(buzzer);
+		delay(500);
+	}
+	if (sadCounter == 2)
+	{
+		blueison();
+		tone(buzzer, NOTE_E5);
+		delay(750);
+		tone(buzzer, NOTE_B5);
+		delay(650);
+		tone(buzzer, NOTE_CS6);
+		delay(500);
+		tone(buzzer, NOTE_D6);
+		delay(250);
+		tone(buzzer, NOTE_CS6);
+		delay(500);
+		tone(buzzer, NOTE_D5);
+		delay(1000);
+	}
+	if (sadCounter == 3)
+	{
+		noTone(buzzer);
+		delay(2000);
+	}
+}
+
+int happysong()
+{
+	sadCounter = 0;
+	happyCounter++;
+	if (happyCounter == 4)
+		happyCounter = 0;
+	if (happyCounter == 0)
+	{
+		redison();
+		tone(buzzer, NOTE_GS3);
+		delay(450);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_GS4);
+		delay(225);
+		tone(buzzer, NOTE_GS3);
+		delay(200);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_GS4);
+		delay(300);
+		noTone(buzzer);
+		delay(50);
+		tone(buzzer, NOTE_GS3);
+		delay(450);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_F4);
+		delay(225);
+		tone(buzzer, NOTE_GS3);
+		delay(200);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_F4);
+		delay(300);
+		noTone(buzzer);
+		delay(50);
+	}
+	if (happyCounter == 1)
+	{
+		redison();
+		tone(buzzer, NOTE_GS3);
+		delay(450);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_GS4);
+		delay(225);
+		tone(buzzer, NOTE_GS3);
+		delay(200);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_GS4);
+		delay(300);
+		noTone(buzzer);
+		delay(50);
+		tone(buzzer, NOTE_GS3);
+		delay(450);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_F4);
+		delay(225);
+		tone(buzzer, NOTE_GS3);
+		delay(200);
+		tone(buzzer, NOTE_DS4);
+		delay(200);
+		tone(buzzer, NOTE_F4);
+		delay(350);
+		noTone(buzzer);
+		delay(300);
+	}
+	if (happyCounter == 2)
+	{
+		redison();
+		tone(buzzer, NOTE_GS5);
+		delay(200);
+		tone(buzzer, NOTE_AS5);
+		delay(200);
+		tone(buzzer, NOTE_C6);
+		delay(200);
+		noTone(buzzer);
+		delay(200);
+		tone(buzzer, NOTE_C6);
+		delay(200);
+		tone(buzzer, NOTE_AS5);
+		delay(200);
+		tone(buzzer, NOTE_GS5);
+		delay(350);
+		// --------
+		tone(buzzer, NOTE_AS5);
+		delay(525);
+		tone(buzzer, NOTE_GS5);
+		delay(600);
+		noTone(buzzer);
+		delay(200);
+		tone(buzzer, NOTE_GS5);
+		delay(200);
+		tone(buzzer, NOTE_AS5);
+		delay(200);
+		tone(buzzer, NOTE_C6);
+		delay(200);
+		noTone(buzzer);
+		delay(200);
+		tone(buzzer, NOTE_C6);
+		delay(1000);
+		noTone(buzzer);
+		delay(300);
+	}
+	if (happyCounter == 3)
+	{
+		redison();
+		tone(buzzer, NOTE_GS5);
+		delay(200);
+		tone(buzzer, NOTE_AS5);
+		delay(200);
+		tone(buzzer, NOTE_C6);
+		delay(200);
+		noTone(buzzer);
+		delay(200);
+		tone(buzzer, NOTE_C6);
+		delay(200);
+		tone(buzzer, NOTE_AS5);
+		delay(200);
+		tone(buzzer, NOTE_GS5);
+		delay(350);
+		// --------
+		tone(buzzer, NOTE_AS5);
+		delay(525);
+		tone(buzzer, NOTE_GS5);
+		delay(600);
+		noTone(buzzer);
+		delay(200);
+		tone(buzzer, NOTE_GS5);
+		delay(500);
+		tone(buzzer, NOTE_AS5);
+		delay(150);
+		noTone(buzzer);
+		delay(100);
+		tone(buzzer, NOTE_AS5);
+		delay(875);
+		noTone(buzzer);
+		delay(300);
+	}
+	if (happyCounter == 4)
+	{
+		noTone(buzzer);
+		delay(2000);
+	}
+}
+
+int blueison()
+// turns on both blue leds
+{
+	digitalWrite(RredPin, HIGH);
+	digitalWrite(RbluePin, LOW);
+	digitalWrite(LredPin, HIGH);
+	digitalWrite(LbluePin, LOW);
+}
+
+int redison()
+// turns on both red leds
+{
+	digitalWrite(RredPin, LOW);
+	digitalWrite(RbluePin, HIGH);
+	digitalWrite(LredPin, LOW);
+	digitalWrite(LbluePin, HIGH);
+}
+
+/*
+int sadeyes()
+{
+matrix.clear();
+matrix.drawBitmap(0, 0, sadness, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(300);
+}
+int blink()
+{
+matrix.clear();
+matrix.drawBitmap(0, 0, blink_step1, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(100);
+matrix.clear();
+matrix.drawBitmap(0, 0, blink_step2, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(100);
+matrix.clear();
+matrix.drawBitmap(0, 0, blink_step3, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(100);
+matrix.clear();
+matrix.drawBitmap(0, 0, blink_step4, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(100);
+matrix.clear();
+matrix.drawBitmap(0, 0, blink_step3, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(100);
+matrix.clear();
+matrix.drawBitmap(0, 0, blink_step2, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(100);
+matrix.clear();
+matrix.drawBitmap(0, 0, blink_step1, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(100);
+}
+int happyeyes()
+{
+matrix.clear();
+matrix.drawBitmap(0, 0, eyeopen, 8, 8, LED_ON);
+matrix.writeDisplay();
+delay(3000);
 }
