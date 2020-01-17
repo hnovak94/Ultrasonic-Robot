@@ -1,10 +1,10 @@
 # Ultrasonic Robot
 
-Solidworks, Arduino, Fritzing, and images for our Ultrasonic Robot Project
+### Solidworks, Arduino, Fritzing, and images for our Ultrasonic Robot Project
 
-[Ultrasonic Robot Proposal](https://docs.google.com/document/d/1IroE3nTtVIrWQ_96-GmFiHwg22frUfM-Q0io6C9J3zw/edit)
+- [Ultrasonic Robot Proposal](https://docs.google.com/document/d/1IroE3nTtVIrWQ_96-GmFiHwg22frUfM-Q0io6C9J3zw/edit)
 
-[Trello](https://trello.com/b/CAv20ek3/ultrasonic-robot-schedule)
+- [Trello](https://trello.com/b/CAv20ek3/ultrasonic-robot-schedule)
 
 ## Proposal
 
@@ -116,6 +116,7 @@ Ultrasonic Robot Trello Page
 *Changes and redesign may be necessary at any of the steps
 
 ### Important Links
+
 
 
 ## Solidworks
