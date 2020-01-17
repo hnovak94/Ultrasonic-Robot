@@ -121,6 +121,7 @@ Ultrasonic Robot Trello Page
 ## Solidworks
 
 Backwall
+![back wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true)
 
 Frontwall
 
@@ -131,21 +132,27 @@ Bottomwall
 Rightwall
 
 Leftwall
+![left wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.JPG?raw=true)
 
 BoxAssembly
 
 LED Matrix
+![led matrix](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true)
 
 LED Matrix Mount
 
 Ultrasonic Sensor Mount
+![ultrasonic sensor mount](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/us.mount.JPG?raw=true)
+
+Breadboard Bracket
+![breadboard bracket](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bbbracket.JPG?raw=true)
 
 ## Arduino Files
 
 ## Fritzing Files
 
 Fritzing Diagram with piezo buzzer, 2 LED matrices*, 3 RGB LEDs, Ultrasonic Sensor
-![wiring diagram](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/fritzingdiagram.ultras.robot.JPG)
+![wiring diagram](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/fritzing.robot.PNG?raw=true)
 
 *Matrices shown in picture are not exactly what are being used; they are placeholders to show the wiring needed. 
 
