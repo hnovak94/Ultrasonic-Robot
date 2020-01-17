@@ -138,6 +138,8 @@ Leftwall
 
 BoxAssembly
 
+![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.JPG?raw=true)
+
 LED Matrix
 
 ![led matrix](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true)
