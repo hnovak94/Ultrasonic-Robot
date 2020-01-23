@@ -88,19 +88,43 @@
 #define NOTE_D8 4699
 #define NOTE_DS8 4978
 int buzzer = 9;
+int buzzers = 3;
 void setup()
 {
 	pinMode(buzzer, OUTPUT);
+	pinMode(buzzers, OUTPUT);
 }
 
 void loop()
 {
-	tone(buzzer, NOTE_F1);
-	delay(5000);
-	tone(buzzer, NOTE_F2);
-	delay(5000);
-	tone(buzzer, NOTE_F3);
-	delay(5000);
-	tone(buzzer, NOTE_F4);
-	delay(5000);
+	tone(buzzer, NOTE_C5);
+	delay(300);
+	tone(buzzer, NOTE_D5);
+	delay(300);
+	tone(buzzer, NOTE_E5);
+	delay(300);
+	tone(buzzer, NOTE_F5);
+	delay(300);
+	tone(buzzer, NOTE_G5);
+	delay(300);
+	tone(buzzer, NOTE_A5);
+	delay(300);
+	tone(buzzer, NOTE_B5);
+	delay(300);
+	tone(buzzer, NOTE_C6);
+	delay(500);
+	tone(buzzer, NOTE_B5);
+	delay(300);
+	tone(buzzer, NOTE_A6);
+	delay(300);
+	tone(buzzer, NOTE_G5);
+	delay(300);
+	tone(buzzer, NOTE_F5);
+	delay(300);
+	tone(buzzer, NOTE_E5);
+	delay(300);
+	tone(buzzer, NOTE_D5);
+	delay(300);
+	tone(buzzer, NOTE_C5);
+	delay(300);
 }
