@@ -1,4 +1,3 @@
-#include <NewPing.h>
 #define NOTE_B0 31
 #define NOTE_C1 33
 #define NOTE_CS1 35
@@ -36,6 +35,18 @@
 #define NOTE_A3 220
 #define NOTE_AS3 233
 #define NOTE_B3 247
+#define NOTE_C4 262
+#define NOTE_CS4 277
+#define NOTE_D4 294
+#define NOTE_DS4 311
+#define NOTE_E4 330
+#define NOTE_F4 349
+#define NOTE_FS4 370
+#define NOTE_G4 392
+#define NOTE_GS4 415
+#define NOTE_A4 440
+#define NOTE_AS4 466
+#define NOTE_B4 494
 #define NOTE_C5 523
 #define NOTE_CS5 554
 #define NOTE_D5 587
@@ -76,89 +87,14 @@
 #define NOTE_CS8 4435
 #define NOTE_D8 4699
 #define NOTE_DS8 4978
-#define NOTE_C4 262
-#define NOTE_CS4 277
-#define NOTE_D4 294
-#define NOTE_DS4 311
-#define NOTE_E4 330
-#define NOTE_F4 349
-#define NOTE_FS4 370
-#define NOTE_G4 392
-#define NOTE_GS4 415
-#define NOTE_A4 440
-#define NOTE_AS4 466
-#define NOTE_B4 494
-const int trigPin = 6;
-const int echoPin = 4;
-int buzzer = 9;
-int timeSinceObject;
-int duration, cm;
-NewPing sonar(trigPin, echoPin, 200);
-
-
+int buzzers = 3;
 void setup()
 {
-	pinMode(buzzer, OUTPUT);
-	Serial.begin(9600);
+	pinMode(buzzers, OUTPUT);
 }
 
 void loop()
 {
-	cm = sonar.ping_cm();
-	if (cm != 0)
-	{
-		if (cm <= 40)
-		{
-			noTone(buzzer);
-		}
-		if (cm >= 40)
-		{
-			sadsong();
-		}
-		delay(100);
-	}
-	Serial.println(cm);
-}
-
-
-int sadsong()
-{
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	tone(buzzer, NOTE_B5);
-	delay(750);
-	tone(buzzer, NOTE_CS6);
-	delay(750);
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	tone(buzzer, NOTE_FS5);
+	tone(buzzers, NOTE_DS8);
 	delay(300);
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	// -------
-	tone(buzzer, NOTE_CS5);
-	delay(250);
-	noTone(buzzer);
-	delay(100);
-	tone(buzzer, NOTE_CS5);
-	delay(250);
-	tone(buzzer, NOTE_D5);
-	delay(400);
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	noTone(buzzer);
-	delay(500);
-	// -------
-	tone(buzzer, NOTE_E5);
-	delay(750);
-	tone(buzzer, NOTE_B5);
-	delay(650);
-	tone(buzzer, NOTE_CS6);
-	delay(500);
-	tone(buzzer, NOTE_D6);
-	delay(250);
-	tone(buzzer, NOTE_CS6);
-	delay(500);
-	tone(buzzer, NOTE_D5);
-	delay(1000);
 }
