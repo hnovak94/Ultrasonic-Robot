@@ -121,37 +121,45 @@ Ultrasonic Robot Trello Page
 
 ## Solidworks
 
-Backwall
+> Backwall
 
-![back wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true)
+![back wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true)\
 
-Frontwall
+> Frontwall
 
-Topwall
+![front wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/frontwall.PNG?raw=true)
 
-Bottomwall
+> Topwall
 
-Rightwall
+![topwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true)
 
-Leftwall
+> Bottomwall
+
+![bottomwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.JPG?raw=true)
+
+> Rightwall
+
+![rightwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true)
+
+> Leftwall
 
 ![left wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.JPG?raw=true)
 
-BoxAssembly
+> BoxAssembly
 
 ![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.JPG?raw=true)
 
-LED Matrix
+> LED Matrix
 
 ![led matrix](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true)
 
-LED Matrix Mount
+> LED Matrix Mount
 
-Ultrasonic Sensor Mount
+> Ultrasonic Sensor Mount
 
 ![ultrasonic sensor mount](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/us.mount.JPG?raw=true)
 
-Breadboard Bracket
+> Breadboard Bracket
 
 ![breadboard bracket](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bbbracket.JPG?raw=true)
 
