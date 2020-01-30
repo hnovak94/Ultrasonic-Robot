@@ -117,6 +117,10 @@ Ultrasonic Robot Trello Page
 
 ### Important Links
 
+## Important Coding
+
+> Buzzer Songs
+	- I needed to test out the Piezo buzzer and different songs on it. I google many different songs, finding tunes like Fur Elise and the Wii theme song (which I did not save the code for).....
 
 
 ## Solidworks
