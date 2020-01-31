@@ -139,7 +139,7 @@ Ultrasonic Robot Trello Page
 
 > Bottomwall
 
-![bottomwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.JPG?raw=true)
+![bottomwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true)
 
 > Rightwall
 
@@ -147,11 +147,13 @@ Ultrasonic Robot Trello Page
 
 > Leftwall
 
-![left wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.JPG?raw=true)
+![left wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true)
 
 > BoxAssembly
 
 ![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.JPG?raw=true)
+
+![inside of box](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true)
 
 > LED Matrix
 
