@@ -127,31 +127,31 @@ Ultrasonic Robot Trello Page
 
 > Backwall
 
-![back wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true)\
+<img src="https://im3.ezgif.com/tmp/ezgif-3-42cd36c56945.png" width="350">
 
 > Frontwall
 
-![front wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/frontwall.PNG?raw=true)
+<img src="https://im3.ezgif.com/tmp/ezgif-3-417c686b826b.png" width="350">
 
 > Topwall
 
-![topwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true)
+<img src="https://im3.ezgif.com/tmp/ezgif-3-36063cb9215b.png" width="250">
 
 > Bottomwall
 
-![bottomwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true)
+<img src="https://im3.ezgif.com/tmp/ezgif-3-adfed2ff5347.png" width="250">
 
 > Rightwall
 
-![rightwall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true)
+<img src="https://im3.ezgif.com/tmp/ezgif-3-0438d813ae7b.png" width="250">
 
 > Leftwall
 
-![left wall](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true)
+<img src="https://im3.ezgif.com/tmp/ezgif-3-e39ed0fff806.png" width="250">
 
 > BoxAssembly
 
-![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true)
+![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.JPG?raw=true)
 
 ![inside of box](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true)
 
