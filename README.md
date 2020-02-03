@@ -127,7 +127,7 @@ Ultrasonic Robot Trello Page
 
 > Backwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-42cd36c56945.png" width="350">
+<img src="https://im3.ezgif.com/tmp/ezgif-3-42cd36c56945.png" width="300">
 
 > Frontwall
 
@@ -143,7 +143,7 @@ Ultrasonic Robot Trello Page
 
 > Rightwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-0438d813ae7b.png" width="250">
+<img src="https://im3.ezgif.com/tmp/ezgif-3-0438d813ae7b.png" width="220">
 
 > Leftwall
 
