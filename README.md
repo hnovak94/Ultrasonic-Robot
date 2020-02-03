@@ -151,7 +151,7 @@ Ultrasonic Robot Trello Page
 
 > BoxAssembly
 
-![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.JPG?raw=true)
+![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true)
 
 ![inside of box](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true)
 
@@ -160,6 +160,8 @@ Ultrasonic Robot Trello Page
 ![led matrix](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true)
 
 > LED Matrix Mount
+
+![led matrix mount](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true)
 
 > Ultrasonic Sensor Mount
 
