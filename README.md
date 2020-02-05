@@ -155,21 +155,31 @@ Ultrasonic Robot Trello Page
 
 ![inside of box](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true)
 
+The first picture shows the outside and "face" of the robot. It shows the ultrasonic sensor and LED matrices. The second picture shows the contents of the inside of the box. Inside is the breadboard, attached with a bracket, the arduino, attached to the floor, the battery holder, an SPDT switch, and the ultrasonic sensor holder. 
+
 > LED Matrix
 
 ![led matrix](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true)
+
+This part I created in Solidworks in order to have something to mate into the assembly. There was no LED matrix part in the shared folder, and I needed to check my measurements. 
 
 > LED Matrix Mount
 
 ![led matrix mount](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true)
 
+This part was created so that the LED matrices would be flush with the wall. The mount is a piece of acrylic that creates space between the matrix and the wall. This enables the matrix to be mounted cleanly. 
+
 > Ultrasonic Sensor Mount
 
 ![ultrasonic sensor mount](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/us.mount.JPG?raw=true)
 
+I got this part off of grab CAD. I didn't make it, but I did add two holes to mount it in the wall. This part holds the ultrasonic sensor in place. 
+
 > Breadboard Bracket
 
 ![breadboard bracket](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bbbracket.JPG?raw=true)
+
+This part I created from scratch, based on a model made by another student. It is used to hold the breadboard bracket against the wall, so that it can be secure without the assisstance of adhesive. 
 
 ## Arduino Files
 
