@@ -127,57 +127,57 @@ Ultrasonic Robot Trello Page
 
 > Backwall
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true" width="200">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true" width="100">
 
 > Frontwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-417c686b826b.png" width="350">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/frontwall.PNG?raw=true" width="100">
 
 > Topwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-36063cb9215b.png" width="250">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true" width="100">
 
 > Bottomwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-adfed2ff5347.png" width="250">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="100">
 
 > Rightwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-0438d813ae7b.png" width="220">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="100">
 
 > Leftwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-e39ed0fff806.png" width="250">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="100">
 
 > BoxAssembly
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true" width="48">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true" width="100">
 
-![inside of box](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true)
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true" width="100">
 
 The first picture shows the outside and "face" of the robot. It shows the ultrasonic sensor and LED matrices. The second picture shows the contents of the inside of the box. Inside is the breadboard, attached with a bracket, the arduino, attached to the floor, the battery holder, an SPDT switch, and the ultrasonic sensor holder. 
 
 > LED Matrix
 
-![led matrix](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true)
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true" width="100">
 
 This part I created in Solidworks in order to have something to mate into the assembly. There was no LED matrix part in the shared folder, and I needed to check my measurements. 
 
 > LED Matrix Mount
 
-![led matrix mount](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true)
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true" width="100">
 
 This part was created so that the LED matrices would be flush with the wall. The mount is a piece of acrylic that creates space between the matrix and the wall. This enables the matrix to be mounted cleanly. 
 
 > Ultrasonic Sensor Mount
 
-![ultrasonic sensor mount](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/us.mount.JPG?raw=true)
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/us.mount.JPG?raw=true" width="100">
 
 I got this part off of grab CAD. I didn't make it, but I did add two holes to mount it in the wall. This part holds the ultrasonic sensor in place. 
 
 > Breadboard Bracket
 
-![breadboard bracket](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bbbracket.JPG?raw=true)
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bbbracket.JPG?raw=true" width="100">
 
 This part I created from scratch, based on a model made by another student. It is used to hold the breadboard bracket against the wall, so that it can be secure without the assisstance of adhesive. 
 
@@ -186,7 +186,8 @@ This part I created from scratch, based on a model made by another student. It i
 ## Fritzing Files
 
 Fritzing Diagram with piezo buzzer, 2 LED matrices*, 3 RGB LEDs, Ultrasonic Sensor
-![wiring diagram](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/fritzing.robot.PNG?raw=true)
+
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/fritzing.robot.PNG?raw=true" width="250">
 
 *Matrices shown in picture are not exactly what are being used; they are placeholders to show the wiring needed. 
 
