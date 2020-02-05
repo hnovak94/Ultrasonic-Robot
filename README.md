@@ -127,7 +127,7 @@ Ultrasonic Robot Trello Page
 
 > Backwall
 
-<img src="https://im3.ezgif.com/tmp/ezgif-3-42cd36c56945.png" width="300">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true" width="200">
 
 > Frontwall
 
@@ -151,7 +151,7 @@ Ultrasonic Robot Trello Page
 
 > BoxAssembly
 
-![box assembly](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true)
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true" width="48">
 
 ![inside of box](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true)
 
