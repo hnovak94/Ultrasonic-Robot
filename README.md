@@ -139,13 +139,19 @@ Ultrasonic Robot Trello Page
 
 > Bottomwall
 
+The bottom wall has four holes to hold the Arduino Uno.
+
 <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="100">
 
 > Rightwall
 
+This wall has eight small holes to hold the LED matrices in place, and two large holes to hold the ultrasonic sensor. This part is the front of the robot.
+
 <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="100">
 
 > Leftwall
+
+This wall has a hole at the top left for the SPDT switch and three smaller adjacent holes to hold the battery holder. There are also four holes for the breadboard bracket, and in the bottom left a hole for the USB port. 
 
 <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="100">
 
@@ -174,6 +180,8 @@ This part was created so that the LED matrices would be flush with the wall. The
 <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/us.mount.JPG?raw=true" width="100">
 
 I got this part off of grab CAD. I didn't make it, but I did add two holes to mount it in the wall. This part holds the ultrasonic sensor in place. 
+
+Credit: GrabCAD [grab CAD](https://grabcad.com/library/ultrasonic-holder-1)
 
 > Breadboard Bracket
 
