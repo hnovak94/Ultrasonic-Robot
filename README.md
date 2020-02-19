@@ -181,7 +181,7 @@ This part was created so that the LED matrices would be flush with the wall. The
 
 I got this part off of grab CAD. I didn't make it, but I did add two holes to mount it in the wall. This part holds the ultrasonic sensor in place. 
 
-Credit: GrabCAD [grab CAD](https://grabcad.com/library/ultrasonic-holder-1)
+Credit: [GrabCAD](https://grabcad.com/library/ultrasonic-holder-1)
 
 > Breadboard Bracket
 
