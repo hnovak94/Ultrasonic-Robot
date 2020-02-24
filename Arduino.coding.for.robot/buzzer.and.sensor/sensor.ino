@@ -1,7 +1,8 @@
-#include <Adafruit_GFX.h>
-#include <Adafruit_SPITFT.h>
-#include <Adafruit_SPITFT_Macros.h>
-#include <gfxfont.h>
+
+
+// I could not easily find a favorable library that included every 
+// note and tone, so I had to include all of this which took up a 
+// lot of space. I would reccomend finding a library.
 #define NOTE_B0 31
 #define NOTE_C1 33
 #define NOTE_CS1 35
@@ -95,6 +96,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include "Adafruit_LEDBackpack.h"
+
 Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
 // ultrasonic sensor setup:
 const int trigPin = 6;
@@ -110,6 +112,7 @@ const int RredPin = 10;
 const int RbluePin = 11;
 const int LredPin = 12;
 const int LbluePin = 8;
+// sets the emotion (LED color, eyses and song) to start out sad/false
 boolean emotion = false;
 void setup()
 {
@@ -132,7 +135,7 @@ void setup()
 }
 
 static const uint8_t PROGMEM
-eyeopen[] =
+eyeopen[] = // each eye image needed its own bitmap, so this one is its neutral, open eye position
 {
 	B00111100,
 	B01111110,
@@ -144,7 +147,8 @@ eyeopen[] =
 	B00111100
 },
 
-blink_step1[] =
+blink_step1[] = // to make the eyes blink,I had to create images that when combined,
+//  would make the eyes appear as if they were closing and opening quickly (blinking)
 {
 	B00000000,
 	B01111110,
@@ -193,7 +197,7 @@ blink_step4[] =
 };
 
 static const uint8_t PROGMEM
-lookright[] =
+lookright[] =  // eyes look right
 {
 	B00111100,
 	B01111110,
@@ -205,7 +209,7 @@ lookright[] =
 	B00111100
 },
 
-lookleft[] =
+lookleft[] = // eyes look left
 {
 	B00111100,
 	B01111110,
@@ -218,7 +222,7 @@ lookleft[] =
 };
 
 static const uint8_t PROGMEM
-happiness[] =
+happiness[] = // this image makes the robot seem happy
 {
 	B00011000,
 	B00100100,
@@ -231,7 +235,7 @@ happiness[] =
 };
 
 static const uint8_t PROGMEM
-sadness[] =
+sadness[] = // this image makes the robot seem sad
 {
 	B00000000,
 	B00000000,
@@ -250,19 +254,20 @@ sadness[] =
 // 
 void loop()
 {
-	cm = getDistance();
+	cm = getDistance(); // this sends a chirp from the ultrasonic sensor, 
+	//that is then recieved and it calculates a distance (simply put, it gets the distance of an object from the sensor.)
 	cm = microsecondsToCentimeters(timeSinceObject);
-	if (cm <= 10)
+	if (cm <= 10) // the robot is happy when you are close to it
 	{
 		emotion = true;
 	}
-	if (cm >= 11)
+	if (cm >= 11) // the robot is sad when you are far from it
 	{
 		emotion = false;
 	}
 	if (cm > 0 && cm < 100)
 	{
-		if (emotion == true)
+		if (emotion == true) 
 		{
 			happysong();
 			redison();
@@ -289,6 +294,7 @@ long microsecondsToCentimeters(long microseconds)
 int getDistance()
 {
 	pinMode(trigPin, OUTPUT);
+	pinMode(4, INPUT);
 	digitalWrite(trigPin, LOW);
 	delayMicroseconds(2);
 	digitalWrite(trigPin, HIGH);
