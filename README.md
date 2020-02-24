@@ -191,6 +191,18 @@ This part I created from scratch, based on a model made by another student. It i
 
 ## Arduino Files
 
+# Buzzer songs
+
+Code for the Charlie Brown Theme and All By Myself buzzer songs
+
+# Coding for Sensor
+
+This is our final code with the RGB LEDs, LED matrices, buzzer, working with the ultrasonic sensor. 
+
+# Coding for LEDs
+
+This folder has the file for the RGB LED code and the LED matrices code. 
+
 ## Fritzing Files
 
 Fritzing Diagram with piezo buzzer, 2 LED matrices*, 3 RGB LEDs, Ultrasonic Sensor
