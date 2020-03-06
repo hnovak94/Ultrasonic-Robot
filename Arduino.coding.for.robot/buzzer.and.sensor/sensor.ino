@@ -1,7 +1,5 @@
-
-
-// I could not easily find a favorable library that included every 
-// note and tone, so I had to include all of this which took up a 
+// I could not easily find a favorable library that included every
+// note and tone, so I had to include all of this which took up a
 // lot of space. I would reccomend finding a library.
 #define NOTE_B0 31
 #define NOTE_C1 33
@@ -96,7 +94,6 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include "Adafruit_LEDBackpack.h"
-
 Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
 // ultrasonic sensor setup:
 const int trigPin = 6;
@@ -148,7 +145,7 @@ eyeopen[] = // each eye image needed its own bitmap, so this one is its neutral,
 },
 
 blink_step1[] = // to make the eyes blink,I had to create images that when combined,
-//  would make the eyes appear as if they were closing and opening quickly (blinking)
+// would make the eyes appear as if they were closing and opening quickly (blinking)
 {
 	B00000000,
 	B01111110,
@@ -197,7 +194,7 @@ blink_step4[] =
 };
 
 static const uint8_t PROGMEM
-lookright[] =  // eyes look right
+lookright[] = // eyes look right
 {
 	B00111100,
 	B01111110,
@@ -254,20 +251,22 @@ sadness[] = // this image makes the robot seem sad
 // 
 void loop()
 {
-	cm = getDistance(); // this sends a chirp from the ultrasonic sensor, 
-	//that is then recieved and it calculates a distance (simply put, it gets the distance of an object from the sensor.)
+	cm = getDistance(); // this sends a chirp from the ultrasonic sensor,
+	// that is then recieved and it calculates a distance (simply put, it gets the distance of an object from the sensor.)
 	cm = microsecondsToCentimeters(timeSinceObject);
-	if (cm <= 10) // the robot is happy when you are close to it
+	if (cm <= 10)
+		// the robot is happy when you are close to it
 	{
 		emotion = true;
 	}
-	if (cm >= 11) // the robot is sad when you are far from it
+	if (cm >= 11)
+		// the robot is sad when you are far from it
 	{
 		emotion = false;
 	}
 	if (cm > 0 && cm < 100)
 	{
-		if (emotion == true) 
+		if (emotion == true)
 		{
 			happysong();
 			redison();
