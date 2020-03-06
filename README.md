@@ -201,7 +201,7 @@ This folder has the file for the RGB LED code and the LED matrices code.
 
 Fritzing Diagram with piezo buzzer, 2 LED matrices*, 3 RGB LEDs, Ultrasonic Sensor
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/fritzing.robot.PNG?raw=true" width="250">
+![fritzing](https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/fritzingupdated.JPG?raw=true)
 
 *Matrices shown in picture are not exactly what are being used; they are placeholders to show the wiring needed. 
 
