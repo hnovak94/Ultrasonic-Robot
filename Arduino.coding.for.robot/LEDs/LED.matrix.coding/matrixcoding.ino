@@ -1,23 +1,16 @@
 #include <Adafruit_LEDBackpack.h>
-
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-
-
-//redownload adafruit led backback older eddition
-
-
-
-
+// redownload adafruit led backback older eddition
 Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(9600); // begins code
   Serial.println("8x8 LED Matrix Test");
   matrix.begin(0x70); // pass in the address
 }
 
-static const uint8_t PROGMEM
+static const uint8_t PROGMEM // this part does the eye pattern
 eyeopen[] =
 {
   B00111100,
@@ -123,8 +116,21 @@ sadness[] =
   B00000000,
   B10000001,
   B10000001,
-  B01000010,
+  B01111110,
   B00111100,
+  B00000000,
+  B00000000
+};
+
+static const uint8_t PROGMEM
+ecstaticness[] =
+{
+  B00000000,
+  B00000000,
+  B00111100,
+  B01111110,
+  B10000001,
+  B10000001,
   B00000000,
   B00000000
 };
@@ -146,7 +152,11 @@ void loop()
   matrix.clear();
   matrix.drawBitmap(0, 0, sadness, 8, 8, LED_ON);
   matrix.writeDisplay();
-  delay(300);
+  delay(3000);
+  matrix.clear();
+  matrix.drawBitmap(0, 0, ecstaticness, 8, 8, LED_ON);
+  matrix.writeDisplay();
+  delay(10000);
   matrix.clear();
   matrix.drawBitmap(0, 0, blink_step1, 8, 8, LED_ON);
   matrix.writeDisplay();

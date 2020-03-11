@@ -1,31 +1,6 @@
 // I could not easily find a favorable library that included every
 // note and tone, so I had to include all of this which took up a
 // lot of space. I would reccomend finding a library.
-#define NOTE_B0 31
-#define NOTE_C1 33
-#define NOTE_CS1 35
-#define NOTE_D1 37
-#define NOTE_DS1 39
-#define NOTE_E1 41
-#define NOTE_F1 44
-#define NOTE_FS1 46
-#define NOTE_G1 49
-#define NOTE_GS1 52
-#define NOTE_A1 55
-#define NOTE_AS1 58
-#define NOTE_B1 62
-#define NOTE_C2 65
-#define NOTE_CS2 69
-#define NOTE_D2 73
-#define NOTE_DS2 78
-#define NOTE_E2 82
-#define NOTE_F2 87
-#define NOTE_FS2 93
-#define NOTE_G2 98
-#define NOTE_GS2 104
-#define NOTE_A2 110
-#define NOTE_AS2 117
-#define NOTE_B2 123
 #define NOTE_C3 131
 #define NOTE_CS3 139
 #define NOTE_D3 147
@@ -62,22 +37,6 @@
 #define NOTE_A6 1760
 #define NOTE_AS6 1865
 #define NOTE_B6 1976
-#define NOTE_C7 2093
-#define NOTE_CS7 2217
-#define NOTE_D7 2349
-#define NOTE_DS7 2489
-#define NOTE_E7 2637
-#define NOTE_F7 2794
-#define NOTE_FS7 2960
-#define NOTE_G7 3136
-#define NOTE_GS7 3322
-#define NOTE_A7 3520
-#define NOTE_AS7 3729
-#define NOTE_B7 3951
-#define NOTE_C8 4186
-#define NOTE_CS8 4435
-#define NOTE_D8 4699
-#define NOTE_DS8 4978
 #define NOTE_C4 262
 #define NOTE_CS4 277
 #define NOTE_D4 294
@@ -96,10 +55,12 @@
 #include "Adafruit_LEDBackpack.h"
 Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
 // ultrasonic sensor setup:
-const int trigPin = 6;
-const int echoPin = 2;
-int timeSinceObject;
-int duration, cm;
+#include <NewPing.h>
+#include <NewTone.h>
+#define TRIGGER_PIN 6 // Arduino pin tied to trigger pin on the ultrasonic sensor.
+#define ECHO_PIN 2 // Arduino pin tied to echo pin on the ultrasonic sensor.
+#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 // buzzer setup:
 int buzzer = 9;
 int sadCounter = 0;
@@ -109,14 +70,12 @@ const int RredPin = 10;
 const int RbluePin = 11;
 const int LredPin = 12;
 const int LbluePin = 8;
-// sets the emotion (LED color, eyses and song) to start out sad/false
-boolean emotion = false;
 void setup()
 {
-	Serial.begin(9600);
+	Serial.begin(9600); // Open serial monitor at 115200 baud to see ping results.
 	pinMode(buzzer, OUTPUT);
-	pinMode(trigPin, OUTPUT);
-	pinMode(echoPin, INPUT);
+	pinMode(TRIGGER_PIN, OUTPUT);
+	pinMode(ECHO_PIN, INPUT);
 	pinMode(RredPin, OUTPUT);
 	pinMode(LredPin, OUTPUT);
 	pinMode(RbluePin, OUTPUT);
@@ -147,7 +106,7 @@ eyeopen[] = // each eye image needed its own bitmap, so this one is its neutral,
 blink_step1[] = // to make the eyes blink,I had to create images that when combined,
 // would make the eyes appear as if they were closing and opening quickly (blinking)
 {
-	B00000000,
+	B00111100,
 	B01111110,
 	B11100111,
 	B11100111,
@@ -219,19 +178,6 @@ lookleft[] = // eyes look left
 };
 
 static const uint8_t PROGMEM
-happiness[] = // this image makes the robot seem happy
-{
-	B00011000,
-	B00100100,
-	B01000010,
-	B01011010,
-	B01100110,
-	B01000010,
-	B00000000,
-	B00000000
-};
-
-static const uint8_t PROGMEM
 sadness[] = // this image makes the robot seem sad
 {
 	B00000000,
@@ -244,6 +190,19 @@ sadness[] = // this image makes the robot seem sad
 	B00000000
 };
 
+static const uint8_t PROGMEM
+ecstaticness[] =
+{
+	B00000000,
+	B00000000,
+	B00111100,
+	B01111110,
+	B10000001,
+	B10000001,
+	B00000000,
+	B00000000
+};
+
 // 
 // 
 // 
@@ -251,58 +210,31 @@ sadness[] = // this image makes the robot seem sad
 // 
 void loop()
 {
-	Serial.println (cm);
-	cm = getDistance(); // this sends a chirp from the ultrasonic sensor,
-	// that is then recieved and it calculates a distance (simply put, it gets the distance of an object from the sensor.)
-	cm = microsecondsToCentimeters(timeSinceObject);
-	if (cm <= 10)
-		// the robot is happy when you are close to it
+	unsigned int uS = sonar.ping(); // Send ping, get ping time in microseconds (uS).
+	uS = sonar.convert_cm(uS);
+	Serial.print("Ping: ");
+	Serial.print(uS); // Convert ping time to distance and print result (0 = outside set distance range, no ping echo)
+	Serial.println("cm");
+	if (uS > 0 && uS < 100)
 	{
-		emotion = true;
-	}
-	if (cm >= 11)
-		// the robot is sad when you are far from it
-	{
-		emotion = false;
-	}
-	if (cm > 0 && cm < 100)
-	{
-		if (emotion == true)
+
+		if (uS <= 10)
 		{
 			happysong();
 			redison();
 			happyeyes();
 			blink();
 		}
-		if (emotion == false)
-		{
-			sadsong();
-			blueison();
-			sadeyes();
-			blink();
-		}
+		else
+			if (uS >= 11)
+			{
+				sadsong();
+				blueison();
+				sadeyes();
+				blink();
+			}
 	}
-	Serial.println(cm);
 	delay(100);
-}
-
-long microsecondsToCentimeters(long microseconds)
-{
-	return microseconds / 29 / 2;
-}
-
-int getDistance()
-{
-	pinMode(trigPin, OUTPUT);
-	pinMode(4, INPUT);
-	digitalWrite(trigPin, LOW);
-	delayMicroseconds(2);
-	digitalWrite(trigPin, HIGH);
-	delayMicroseconds(10);
-	digitalWrite(trigPin, LOW);
-	pinMode(echoPin, INPUT);
-	timeSinceObject = pulseIn(echoPin, HIGH);
-	return cm;
 }
 
 int sadsong()
@@ -314,54 +246,54 @@ int sadsong()
 	if (sadCounter == 0)
 	{
 		blueison();
-		tone(buzzer, NOTE_E5);
+		NewTone(buzzer, NOTE_E5);
 		delay(750);
-		tone(buzzer, NOTE_B5);
+		NewTone(buzzer, NOTE_B5);
 		delay(750);
-		tone(buzzer, NOTE_CS6);
+		NewTone(buzzer, NOTE_CS6);
 		delay(750);
-		tone(buzzer, NOTE_E5);
+		NewTone(buzzer, NOTE_E5);
 		delay(750);
-		tone(buzzer, NOTE_FS5);
+		NewTone(buzzer, NOTE_FS5);
 		delay(300);
-		tone(buzzer, NOTE_E5);
+		NewTone(buzzer, NOTE_E5);
 		delay(750);
 	}
 	if (sadCounter == 1)
 	{
 		blueison();
-		tone(buzzer, NOTE_CS5);
+		NewTone(buzzer, NOTE_CS5);
 		delay(250);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(100);
-		tone(buzzer, NOTE_CS5);
+		NewTone(buzzer, NOTE_CS5);
 		delay(250);
-		tone(buzzer, NOTE_D5);
+		NewTone(buzzer, NOTE_D5);
 		delay(400);
-		tone(buzzer, NOTE_E5);
+		NewTone(buzzer, NOTE_E5);
 		delay(750);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(500);
 	}
 	if (sadCounter == 2)
 	{
 		blueison();
-		tone(buzzer, NOTE_E5);
+		NewTone(buzzer, NOTE_E5);
 		delay(750);
-		tone(buzzer, NOTE_B5);
+		NewTone(buzzer, NOTE_B5);
 		delay(650);
-		tone(buzzer, NOTE_CS6);
+		NewTone(buzzer, NOTE_CS6);
 		delay(500);
-		tone(buzzer, NOTE_D6);
+		NewTone(buzzer, NOTE_D6);
 		delay(250);
-		tone(buzzer, NOTE_CS6);
+		NewTone(buzzer, NOTE_CS6);
 		delay(500);
-		tone(buzzer, NOTE_D5);
+		NewTone(buzzer, NOTE_D5);
 		delay(1000);
 	}
 	if (sadCounter == 3)
 	{
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(2000);
 	}
 }
@@ -375,142 +307,142 @@ int happysong()
 	if (happyCounter == 0)
 	{
 		redison();
-		tone(buzzer, NOTE_GS3);
-		delay(450);
-		tone(buzzer, NOTE_DS4);
+		NewTone(buzzer, NOTE_GS3);
+		delay(350);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_GS4);
+		delay(125);
+		NewTone(buzzer, NOTE_GS3);
+		delay(100);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_GS4);
 		delay(200);
-		tone(buzzer, NOTE_GS4);
-		delay(225);
-		tone(buzzer, NOTE_GS3);
+		noNewTone(buzzer);
+		delay(25);
+		NewTone(buzzer, NOTE_GS3);
+		delay(350);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_F4);
+		delay(125);
+		NewTone(buzzer, NOTE_GS3);
+		delay(100);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_F4);
 		delay(200);
-		tone(buzzer, NOTE_DS4);
-		delay(200);
-		tone(buzzer, NOTE_GS4);
-		delay(300);
-		noTone(buzzer);
-		delay(50);
-		tone(buzzer, NOTE_GS3);
-		delay(450);
-		tone(buzzer, NOTE_DS4);
-		delay(200);
-		tone(buzzer, NOTE_F4);
-		delay(225);
-		tone(buzzer, NOTE_GS3);
-		delay(200);
-		tone(buzzer, NOTE_DS4);
-		delay(200);
-		tone(buzzer, NOTE_F4);
-		delay(300);
-		noTone(buzzer);
-		delay(50);
+		noNewTone(buzzer);
+		delay(25);
 	}
 	if (happyCounter == 1)
 	{
 		redison();
-		tone(buzzer, NOTE_GS3);
-		delay(450);
-		tone(buzzer, NOTE_DS4);
-		delay(200);
-		tone(buzzer, NOTE_GS4);
-		delay(225);
-		tone(buzzer, NOTE_GS3);
-		delay(200);
-		tone(buzzer, NOTE_DS4);
-		delay(200);
-		tone(buzzer, NOTE_GS4);
-		delay(300);
-		noTone(buzzer);
-		delay(50);
-		tone(buzzer, NOTE_GS3);
-		delay(450);
-		tone(buzzer, NOTE_DS4);
-		delay(200);
-		tone(buzzer, NOTE_F4);
-		delay(225);
-		tone(buzzer, NOTE_GS3);
-		delay(200);
-		tone(buzzer, NOTE_DS4);
-		delay(200);
-		tone(buzzer, NOTE_F4);
+		NewTone(buzzer, NOTE_GS3);
 		delay(350);
-		noTone(buzzer);
-		delay(300);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_GS4);
+		delay(125);
+		NewTone(buzzer, NOTE_GS3);
+		delay(100);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_GS4);
+		delay(200);
+		noNewTone(buzzer);
+		delay(25);
+		NewTone(buzzer, NOTE_GS3);
+		delay(350);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_F4);
+		delay(125);
+		NewTone(buzzer, NOTE_GS3);
+		delay(100);
+		NewTone(buzzer, NOTE_DS4);
+		delay(100);
+		NewTone(buzzer, NOTE_F4);
+		delay(250);
+		noNewTone(buzzer);
+		delay(200);
 	}
 	if (happyCounter == 2)
 	{
 		redison();
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(200);
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(200);
-		tone(buzzer, NOTE_C6);
+		NewTone(buzzer, NOTE_C6);
 		delay(200);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(200);
-		tone(buzzer, NOTE_C6);
+		NewTone(buzzer, NOTE_C6);
 		delay(200);
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(200);
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(350);
 		// --------
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(525);
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(600);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(200);
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(200);
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(200);
-		tone(buzzer, NOTE_C6);
+		NewTone(buzzer, NOTE_C6);
 		delay(200);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(200);
-		tone(buzzer, NOTE_C6);
+		NewTone(buzzer, NOTE_C6);
 		delay(1000);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(300);
 	}
 	if (happyCounter == 3)
 	{
 		redison();
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(200);
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(200);
-		tone(buzzer, NOTE_C6);
+		NewTone(buzzer, NOTE_C6);
 		delay(200);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(200);
-		tone(buzzer, NOTE_C6);
+		NewTone(buzzer, NOTE_C6);
 		delay(200);
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(200);
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(350);
 		// --------
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(525);
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(600);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(200);
-		tone(buzzer, NOTE_GS5);
+		NewTone(buzzer, NOTE_GS5);
 		delay(500);
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(150);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(100);
-		tone(buzzer, NOTE_AS5);
+		NewTone(buzzer, NOTE_AS5);
 		delay(875);
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(300);
 	}
 	if (happyCounter == 4)
 	{
-		noTone(buzzer);
+		noNewTone(buzzer);
 		delay(2000);
 	}
 }
@@ -576,7 +508,7 @@ int blink()
 int happyeyes()
 {
 	matrix.clear();
-	matrix.drawBitmap(0, 0, eyeopen, 8, 8, LED_ON);
+	matrix.drawBitmap(0, 0, ecstaticness, 8, 8, LED_ON);
 	matrix.writeDisplay();
 	delay(3000);
 }
