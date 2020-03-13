@@ -51,24 +51,24 @@
 #define NOTE_B4 494
 // matrix setup:
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include "Adafruit_LEDBackpack.h"
-Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
+#include <Adafruit_GFX.h> // I found these libraries on the Adafruit website.
+#include "Adafruit_LEDBackpack.h" // Found this one as well
+Adafruit_8x8matrix matrix = Adafruit_8x8matrix(); // this declares a matrix as an object, this becomes handy when you have more than  one
 // ultrasonic sensor setup:
-#include <NewPing.h>
+#include <NewPing.h> // I use this library to help clear up my code, this helps to control the ultrasonic sensor
 #define TRIGGER_PIN 6 // Arduino pin tied to trigger pin on the ultrasonic sensor.
 #define ECHO_PIN 2 // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
 // buzzer setup:
-#include <NewTone.h>
-int buzzer = 9;
-int sadCounter = 0;
-int happyCounter = 0;
+#include <NewTone.h> // I needed to use this because otherwise Tone and NewPing were using the same timer
+int buzzer = 9; 
+int sadCounter = 0; // this sets both counters to 0, because otherwise it has no idea at what number/song it should start
+int happyCounter = 0; // same here
 // RGB leds setup:
-const int RredPin = 10;
+const int RredPin = 10; // R = Right LED, just helps to distinguish between the two RGB LEDs
 const int RbluePin = 11;
-const int LredPin = 12;
+const int LredPin = 12; // L = Left LED
 const int LbluePin = 8;
 void setup()
 {
@@ -80,7 +80,7 @@ void setup()
 	pinMode(LredPin, OUTPUT);
 	pinMode(RbluePin, OUTPUT);
 	pinMode(LbluePin, OUTPUT);
-	matrix.begin(0x70);
+	matrix.begin(0x70); // This sets up the adress for the matrix. You can change the adress by using soder, and then the adresses can be 0x71, 0x72, etc
 }
 
 static const uint8_t PROGMEM
