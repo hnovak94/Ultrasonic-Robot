@@ -1,4 +1,4 @@
-# Ultrasonic Robot
+# Ultrasonic Robot ☆
 
 ### Solidworks, Arduino, Fritzing, and images for our Ultrasonic Robot Project
 
