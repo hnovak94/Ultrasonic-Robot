@@ -207,9 +207,7 @@ Fritzing Diagram with piezo buzzer, 2 LED matrices*, 3 RGB LEDs, Ultrasonic Sens
 
 ## Wiring
 
-5V (vcc): red, (RGB LEDs-grey)
-
-GND: black
+5V (vcc): red, (RGB LEDs - black, GND: black)
 
 Ultrasonic sensor: Echo-blue, Trig-green
 
@@ -217,3 +215,4 @@ RGB LEDs: Color of wire corresponds to color of LED (red with red, blue with blu
 
 LED matrices: SCL-yellow, SDA-orange
 
+Piezo buzzer: Pin ~9 - white
