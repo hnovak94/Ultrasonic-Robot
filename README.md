@@ -70,51 +70,6 @@ Happy: Exp. 2
 * Battery
 * Battery Holder
 
-### Schedule*  Projected Finish Time: 7 WEEKS
-Ultrasonic Robot Trello Page
-
-1st WEEK- Finish planning 
-
-2nd WEEK- Split up and do individual work on Arduino Coding + Wiring
-
-			~Jeanne: Sounds + LED Matrices
-			
-			~Harriet: Wiring + Coding sounds
-
-3rd WEEK- Finish some of the code and begin Solidworks
-			~Jeanne: Done coding LEDs+Sounds with US+(maybe)finish coding LED matrices
-			
-			~Harriet: Start making box in Solidworks + help Jeanne finish coding
-		
-4th WEEK- Finish basic box shape and work on coding
-
-	~Jeanne: Get all the parts to work together
-	
-	~Harriet: Finish the box shape
-
-5th WEEK- Make holes in the box and final code touches
-
-	~Jeanne: Done Coding
-	
-	~Harriet: Holes in the box
-
-6th WEEK- Begin putting parts together
-
-	~Laser cut box walls
-	
-	~Trial + Error, make changes
-	
-	~Assemble box
-
-7th WEEK- Final Assembly
-
-	~Box Assembled
-	
-	~Everything in the box 
-
-		
-*Changes and redesign may be necessary at any of the steps
-
 ## Important Links
 
 ## Solidworks
