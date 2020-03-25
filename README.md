@@ -119,55 +119,37 @@ Ultrasonic Robot Trello Page
 
 ## Solidworks
 
-### Backwall
+### Back wall + Front wall
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true" width="175">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true" width="175"> <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/frontwall.PNG?raw=true" width="175">
 
-### Frontwall
+### Top wall (L) + Bottom wall (R)
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/frontwall.PNG?raw=true" width="175">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true" width="175">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="225">
 
-### Topwall
-
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true" width="175">
-
-### Bottomwall
+#### Cuts + Extrusions 
 
 The bottom wall has four holes to hold the Arduino Uno.
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="225">
+### Right wall + Left wall
 
-### Rightwall
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="175">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="225">
 
-This wall has eight small holes to hold the LED matrices in place, and two large holes to hold the ultrasonic sensor. This part is the front of the robot.
-
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="175">
-
-### Leftwall
-
-This wall has a hole at the top left for the SPDT switch and three smaller adjacent holes to hold the battery holder. There are also four holes for the breadboard bracket, and in the bottom left a hole for the USB port. 
-
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="225">
+#### Cuts + Extrusions
+The right wall (left) has eight small holes to hold the LED matrices in place, and two large holes to hold the ultrasonic sensor. This part is the front of the robot.
+The left wall (right) has a hole at the top left for the SPDT switch and three smaller adjacent holes to hold the battery holder. There are also four holes for the breadboard bracket, and in the bottom left a hole for the USB port. 
 
 ### BoxAssembly
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true" width="225">
-
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true" width="225">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true" width="225">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true" width="225">
 
 The first picture shows the outside and "face" of the robot. It shows the ultrasonic sensor and LED matrices. The second picture shows the contents of the inside of the box. Inside is the breadboard, attached with a bracket, the arduino, attached to the floor, the battery holder, an SPDT switch, and the ultrasonic sensor holder. 
 
-### LED Matrix
+### LED Matrices
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true" width="175">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true" width="175">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true" width="175">
 
-This part I created in Solidworks in order to have something to mate into the assembly. There was no LED matrix part in the shared folder, and I needed to check my measurements. 
-
-### LED Matrix Mount
-
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true" width="175">
-
-This part was created so that the LED matrices would be flush with the wall. The mount is a piece of acrylic that creates space between the matrix and the wall. This enables the matrix to be mounted cleanly. 
+The LED matrix (shown on the left)I created in Solidworks in order to have something to mate into the assembly. There was no LED matrix part in the shared parts folder, and I needed to check my measurements. The mount (shown on the right) was created so that the LED matrices would be flush with the wall. The mount is a piece of acrylic that creates space between the matrix and the wall. This enables the matrix to be mounted cleanly. 
 
 ### Ultrasonic Sensor Mount
 
@@ -181,7 +163,7 @@ Credit: [GrabCAD](https://grabcad.com/library/ultrasonic-holder-1)
 
 <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bbbracket.JPG?raw=true" width="175">
 
-This part I created from scratch, based on a model made by another student. It is used to hold the breadboard bracket against the wall, so that it can be secure without the assisstance of adhesive. 
+This part I created from scratch based on a model made by another student. It is used to hold the breadboard bracket against the wall, so that it can be secure without the assisstance of adhesive. 
 
 ## Arduino Files
 
