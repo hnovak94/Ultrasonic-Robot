@@ -76,11 +76,11 @@ Happy: Exp. 2
 
 ### Back wall + Front wall
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true" width="175"> <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/frontwall.PNG?raw=true" width="200">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/backwall.robot.JPG?raw=true" width="190"> <img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/frontwall.PNG?raw=true" width="260">
 
 ### Top wall (L) + Bottom wall (R)
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true" width="175">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="250">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true" width="220">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="330">
 
 #### Cuts + Extrusions 
 
@@ -88,7 +88,7 @@ The bottom wall has four holes to hold the Arduino Uno.
 
 ### Right wall + Left wall
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="175">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="250">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="225">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="300">
 
 #### Cuts + Extrusions
 The right wall (left) has eight small holes to hold the LED matrices in place, and two large holes to hold the ultrasonic sensor. This part is the front of the robot.
@@ -96,7 +96,7 @@ The left wall (right) has a hole at the top left for the SPDT switch and three s
 
 ### BoxAssembly
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true" width="260">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true" width="260">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/box.robot.2.JPG?raw=true" width="370">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/insideofbox.JPG?raw=true" width="280">
 
 The first picture shows the outside and "face" of the robot. It shows the ultrasonic sensor and LED matrices. The second picture shows the contents of the inside of the box. Inside is the breadboard, attached with a bracket, the arduino, attached to the floor, the battery holder, an SPDT switch, and the ultrasonic sensor holder. 
 
