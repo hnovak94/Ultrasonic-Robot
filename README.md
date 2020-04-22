@@ -80,7 +80,7 @@ Happy: Exp. 2
 
 ### Top wall (L) + Bottom wall (R)
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true" width="220">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="330">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/topwall.PNG?raw=true" width="220">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/bottomwall.robot.2.JPG?raw=true" width="285">
 
 #### Cuts + Extrusions 
 
@@ -88,7 +88,7 @@ The bottom wall has four holes to hold the Arduino Uno.
 
 ### Right wall + Left wall
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="225">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="300">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/rightwall.PNG?raw=true" width="150">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/leftwall.robot.2.JPG?raw=true" width="225">
 
 #### Cuts + Extrusions
 The right wall (left) has eight small holes to hold the LED matrices in place, and two large holes to hold the ultrasonic sensor. This part is the front of the robot.
@@ -102,7 +102,7 @@ The first picture shows the outside and "face" of the robot. It shows the ultras
 
 ### LED Matrices
 
-<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true" width="215">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true" width="215">
+<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrix.JPG?raw=true" width="215">	<img src="https://github.com/hnovak94/Ultrasonic-Robot/blob/master/media/ledmatrixmount.JPG?raw=true" width="175">
 
 The LED matrix (shown on the left)I created in Solidworks in order to have something to mate into the assembly. There was no LED matrix part in the shared parts folder, and I needed to check my measurements. The mount (shown on the right) was created so that the LED matrices would be flush with the wall. The mount is a piece of acrylic that creates space between the matrix and the wall. This enables the matrix to be mounted cleanly. 
 
